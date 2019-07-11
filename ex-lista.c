@@ -37,8 +37,10 @@ int tamanho(LISTA *l){
 void imprime(LISTA *l){
 	int i = l->inicio;
 	// Memso Modelo Pra Percorrer para ver  o tamanho percorre e imprime no determinado indice do i;
+	printf("Lista: ");
 	while(i!= INVALIDO ){
-		printf("Lista: %i ", l->A[i].chave);
+		printf(" %i ", l->A[i].chave);
+		i= l->A[i].prox;
 	}
 }
 // Busca com a lista ordenada
@@ -115,9 +117,24 @@ int excluir(LISTA *l, int x){
 	devolveNo(l,i);
 	return 1;
 }
+void renicializarLista(LISTA *l){
+	inicializarEstrutura(l);
+}
 
 int main (){
-	// Agora é Só Usar as Funções ;) :)
+	int d =5, r=9, t=6,a=2;
+	
+	//agora é só usar as funções ;) 
+	// Exemplo de uso;
+	LISTA *l = (LISTA*)malloc(sizeof(LISTA));
+	inicializarEstrutura(l);
+	inserirElementos(l,d);
+	inserirElementos(l,r);
+	inserirElementos(l,t);
+	inserirElementos(l,a);
+	excluir(l,d);
+	imprime(l);
+	free(l);
 	return 0;
 }
 
